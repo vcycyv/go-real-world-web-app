@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
+	"github.com/sirupsen/logrus"
 	"github.com/vcycyv/blog/handler"
 	"github.com/vcycyv/blog/infrastructure"
 	infra "github.com/vcycyv/blog/infrastructure"
@@ -63,7 +64,9 @@ func createDB() *gorm.DB {
 func initRouter() *gin.Engine {
 	r := gin.Default()
 	r.Use(middleware.JSONAppErrorReporter())
-	r.Use(middleware.LoggerToFile())
+
+	logrus.SetLevel(logrus.DebugLevel)
+	r.Use(middleware.LoggerToFile(logrus.StandardLogger()))
 	r.Use(middleware.CORS())
 	gin.SetMode(infra.AppSetting.RunMode)
 

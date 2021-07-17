@@ -1,7 +1,7 @@
 package mock
 
 import (
-	"log"
+	logger "github.com/sirupsen/logrus"
 
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
@@ -14,7 +14,7 @@ func CreateDB() *gorm.DB {
 			SingularTable: true,
 		}})
 	if err != nil {
-		log.Fatal("failed to open db")
+		logger.Fatal("failed to open db")
 	}
 
 	return db

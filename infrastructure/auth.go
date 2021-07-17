@@ -2,10 +2,11 @@ package infrastructure
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 	"strings"
 	"time"
+
+	log "github.com/sirupsen/logrus"
 
 	"crypto/md5"
 	"encoding/hex"

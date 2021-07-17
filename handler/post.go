@@ -1,10 +1,10 @@
 package handler
 
 import (
-	"log"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	logger "github.com/sirupsen/logrus"
 	"github.com/vcycyv/blog/domain"
 	rep "github.com/vcycyv/blog/representation"
 )
@@ -31,18 +31,17 @@ func (s *postHandler) Add(c *gin.Context) {
 		_ = c.Error(appErr)
 		return
 	}
+	logger.Debugf("Received request to add a post %s.", post.Name)
 
 	token := s.authService.ExtractToken(c)
 	post.User, _ = s.authService.GetUserFromToken(token)
-
-	fullPath := c.Request.URL.Scheme
-	log.Print(fullPath)
 
 	rtnVal, err := s.postService.Add(*post)
 	if err != nil {
 		_ = c.Error(err)
 		return
 	}
+	logger.Debugf("The post %s is added successfully.", rtnVal.Name)
 	c.JSON(http.StatusCreated, rtnVal)
 }
 
@@ -83,21 +82,25 @@ func (s *postHandler) Update(c *gin.Context) {
 		})
 		return
 	}
+	logger.Debugf("Received request to add a post %s", post.Name)
 
 	post, err = s.postService.Update(*post)
 	if err != nil {
 		_ = c.Error(err)
 		return
 	}
+	logger.Debugf("The post %s is updated successfully.", post.Name)
 	c.JSON(http.StatusOK, post)
 }
 
 func (s *postHandler) Delete(c *gin.Context) {
 	id := c.Param("id")
+	logger.Debugf("Received request to delete a post %s.", id)
 	err := s.postService.Delete(id)
 	if err != nil {
 		_ = c.Error(err)
 		return
 	}
+	logger.Debugf("The post %s is deleted successfully.", id)
 	c.JSON(http.StatusNoContent, nil)
 }

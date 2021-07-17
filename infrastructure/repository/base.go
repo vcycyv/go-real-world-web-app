@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"log"
+	logger "github.com/sirupsen/logrus"
 
 	"gorm.io/gorm"
 
@@ -19,7 +19,7 @@ func InitDB(db *gorm.DB) {
 
 	err := db.Callback().Create().Before("gorm:create").Register("uuid", createCallback)
 	if err != nil {
-		log.Fatal("failed to register uuid hook")
+		logger.Fatal("failed to register uuid hook")
 	}
 
 	sqlDB, _ := db.DB()
@@ -32,6 +32,6 @@ func InitDB(db *gorm.DB) {
 func migrate(db *gorm.DB) {
 	err := db.AutoMigrate(&entity.Post{})
 	if err != nil {
-		log.Fatal("migration failed.")
+		logger.Fatal("migration failed.")
 	}
 }

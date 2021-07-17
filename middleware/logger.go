@@ -11,9 +11,7 @@ import (
 	infra "github.com/vcycyv/blog/infrastructure"
 )
 
-func LoggerToFile() gin.HandlerFunc {
-	logger := logrus.New()
-	logger.SetLevel(logrus.DebugLevel)
+func LoggerToFile(logger *logrus.Logger) gin.HandlerFunc {
 	logWriter, _ := rotatelogs.New(
 		path.Join(infra.AppSetting.LogPath, infra.AppSetting.AppName+".%Y%m%d.log"),
 		rotatelogs.WithLinkName(path.Join(infra.AppSetting.LogPath, infra.AppSetting.AppName)),
