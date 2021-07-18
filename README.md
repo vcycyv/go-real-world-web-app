@@ -1,7 +1,7 @@
 # go-real-world-web-app
 
 ## Gin + Gorm2 搭建企业级应用
-
+做了一个视频，介绍和演示了这个项目：https://www.bilibili.com/video/BV15P4y147Ce  
 此示例包含：  
 1. 企业级应用的分层架构
 2. gin + 最新版gorm的示例 （gorm2相对于jinzhu包的第一版gorm）
