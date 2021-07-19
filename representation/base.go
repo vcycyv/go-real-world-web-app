@@ -14,6 +14,6 @@ type ResourceLink struct {
 	Rel    string `json:"rel"`
 	Method string `json:"method"`
 	Href   string `json:"href"`
-	Uri    string `json:"uri"`
-	Type   string `json:"type"`
+	//Uri    string `json:"uri"`
+	//Type   string `json:"type"`
 }
