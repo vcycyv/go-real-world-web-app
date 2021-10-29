@@ -57,7 +57,7 @@ func (s *authService) Auth(user string, password string) error {
 	searchRequest := ldap.NewSearchRequest(
 		LDAPSetting.DC,
 		ldap.ScopeWholeSubtree, ldap.NeverDerefAliases, 0, 0, false,
-		fmt.Sprintf("(&(objectClass=organizationalPerson)(uid=%s))", user),
+		fmt.Sprintf("(&(objectClass=organizationalPerson)(uid=%s))", ldap.EscapeFilter(user)),
 		[]string{"dn"},
 		nil,
 	)
