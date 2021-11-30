@@ -52,4 +52,5 @@ find ./ -type f -exec sed -i -e 's/Post/[Replacement]/g' {} \;
 find ./ -type f -exec sed -i -e 's/Methed[Replacement]/MethodPost/g' {} \;  
 find ./ -type f -exec sed -i -e 's/"blog"/"[replacement]"/g' {} \;  
 find ./ -type f -exec sed -i -e 's/[replacement]gres/postgres/g' {} \;  
+find ./ -type f \( ! -iname "replace.sh" \) -exec sed -i -e 's/POSTGRES_DB: blog/POSTGRES_DB: [project]/g' {} \;
 
