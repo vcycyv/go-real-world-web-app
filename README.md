@@ -46,11 +46,9 @@ https://github.com/golang-standards/project-layout/issues/7
 
 
 ## 初始化/客户化脚本：
-for filename in `find . -type f -name 'post*'`; do mv -v "$filename" "${filename//post/[replacement]}"; done  
-find ./ -type f -exec sed -i -e 's/post/[replacement]/g' {} \;  
-find ./ -type f -exec sed -i -e 's/Post/[Replacement]/g' {} \;  
-find ./ -type f -exec sed -i -e 's/Methed[Replacement]/MethodPost/g' {} \;  
-find ./ -type f -exec sed -i -e 's/"bookshop"/"[replacement]"/g' {} \;  
-find ./ -type f -exec sed -i -e 's/[replacement]gres/postgres/g' {} \;  
+for filename in `find . -type f -name 'book*'`; do mv -v "$filename" "${filename//book/[replacement]}"; done
+find ./ -type f \( ! -iname "replace.sh" \) -exec sed -i -e 's/book/[replacement]/g' {} \;
+find ./ -type f \( ! -iname "replace.sh" \) -exec sed -i -e 's/Book/[Replacement]/g' {} \;
+find ./ -type f \( ! -iname "replace.sh" \) -exec sed -i -e 's/"bookshop"/"[project]"/g' {} \;
 find ./ -type f \( ! -iname "replace.sh" \) -exec sed -i -e 's/POSTGRES_DB: bookshop/POSTGRES_DB: [project]/g' {} \;
 
