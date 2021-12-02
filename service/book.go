@@ -17,11 +17,11 @@ func NewBookService(bookRepo domain.BookRepository) domain.BookInterface {
 }
 
 func (s *bookService) Add(book rep.Book) (*rep.Book, error) {
-	data, err := s.bookRepo.Add(*assembler.BookAss.ToData(book))
+	data, err := s.bookRepo.Add(*assembler.BookAsm.ToData(book))
 	if err != nil {
 		return &rep.Book{}, err
 	}
-	return assembler.BookAss.ToRepresentation(*data), nil
+	return assembler.BookAsm.ToRepresentation(*data), nil
 }
 
 func (s *bookService) Get(id string) (*rep.Book, error) {
@@ -29,7 +29,7 @@ func (s *bookService) Get(id string) (*rep.Book, error) {
 	if err != nil {
 		return nil, err
 	}
-	return assembler.BookAss.ToRepresentation(*data), nil
+	return assembler.BookAsm.ToRepresentation(*data), nil
 }
 
 func (s *bookService) GetAll() ([]*rep.Book, error) {
@@ -40,18 +40,18 @@ func (s *bookService) GetAll() ([]*rep.Book, error) {
 
 	rtnVal := []*rep.Book{}
 	for _, book := range books {
-		rtnVal = append(rtnVal, assembler.BookAss.ToRepresentation(*book))
+		rtnVal = append(rtnVal, assembler.BookAsm.ToRepresentation(*book))
 	}
 	return rtnVal, nil
 }
 
 func (s *bookService) Update(book rep.Book) (*rep.Book, error) {
-	data, err := s.bookRepo.Update(*assembler.BookAss.ToData(book))
+	data, err := s.bookRepo.Update(*assembler.BookAsm.ToData(book))
 	if err != nil {
 		return nil, err
 	}
 
-	return assembler.BookAss.ToRepresentation(*data), nil
+	return assembler.BookAsm.ToRepresentation(*data), nil
 }
 
 func (s *bookService) Delete(id string) error {
