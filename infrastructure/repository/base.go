@@ -30,7 +30,7 @@ func InitDB(db *gorm.DB) {
 }
 
 func migrate(db *gorm.DB) {
-	err := db.AutoMigrate(&entity.Post{})
+	err := db.AutoMigrate(&entity.Book{})
 	if err != nil {
 		logger.Fatal("migration failed.")
 	}
