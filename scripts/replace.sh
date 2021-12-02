@@ -3,5 +3,5 @@ find ./ -type f \( ! -iname "replace.sh" \) -exec sed -i -e 's/post/[replacement
 find ./ -type f \( ! -iname "replace.sh" \) -exec sed -i -e 's/Post/[Replacement]/g' {} \;
 find ./ -type f \( ! -iname "replace.sh" \) -exec sed -i -e 's/Method[Replacement]/MethodPost/g' {} \;
 find ./ -type f \( ! -iname "replace.sh" \) -exec sed -i -e 's/[replacement]gres/postgres/g' {} \;
-find ./ -type f \( ! -iname "replace.sh" \) -exec sed -i -e 's/"blog"/"[project]"/g' {} \;
-find ./ -type f \( ! -iname "replace.sh" \) -exec sed -i -e 's/POSTGRES_DB: blog/POSTGRES_DB: [project]/g' {} \;
+find ./ -type f \( ! -iname "replace.sh" \) -exec sed -i -e 's/"bookshop"/"[project]"/g' {} \;
+find ./ -type f \( ! -iname "replace.sh" \) -exec sed -i -e 's/POSTGRES_DB: bookshop/POSTGRES_DB: [project]/g' {} \;

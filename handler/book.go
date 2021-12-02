@@ -5,8 +5,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 	logger "github.com/sirupsen/logrus"
-	"github.com/vcycyv/blog/domain"
-	rep "github.com/vcycyv/blog/representation"
+	"github.com/vcycyv/bookshop/domain"
+	rep "github.com/vcycyv/bookshop/representation"
 )
 
 type bookHandler struct {

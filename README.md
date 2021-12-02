@@ -31,7 +31,7 @@
   - 避免暴露业务规模
 * snowflake
 ### 3. 返回值struct vs. pointer  
-https://www.ardanlabs.com/blog/2014/12/using-pointers-in-go.html
+https://www.ardanlabs.com/bookshop/2014/12/using-pointers-in-go.html
 ### 4. 尽量避免在运行时创建实例
 ### 5. ldap
 apache directory studio的使用：
@@ -50,7 +50,7 @@ for filename in `find . -type f -name 'post*'`; do mv -v "$filename" "${filename
 find ./ -type f -exec sed -i -e 's/post/[replacement]/g' {} \;  
 find ./ -type f -exec sed -i -e 's/Post/[Replacement]/g' {} \;  
 find ./ -type f -exec sed -i -e 's/Methed[Replacement]/MethodPost/g' {} \;  
-find ./ -type f -exec sed -i -e 's/"blog"/"[replacement]"/g' {} \;  
+find ./ -type f -exec sed -i -e 's/"bookshop"/"[replacement]"/g' {} \;  
 find ./ -type f -exec sed -i -e 's/[replacement]gres/postgres/g' {} \;  
-find ./ -type f \( ! -iname "replace.sh" \) -exec sed -i -e 's/POSTGRES_DB: blog/POSTGRES_DB: [project]/g' {} \;
+find ./ -type f \( ! -iname "replace.sh" \) -exec sed -i -e 's/POSTGRES_DB: bookshop/POSTGRES_DB: [project]/g' {} \;
 

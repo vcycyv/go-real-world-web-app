@@ -6,7 +6,7 @@ import (
 	"gorm.io/gorm"
 
 	"github.com/google/uuid"
-	"github.com/vcycyv/blog/entity"
+	"github.com/vcycyv/bookshop/entity"
 )
 
 func InitDB(db *gorm.DB) {

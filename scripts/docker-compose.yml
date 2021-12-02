@@ -4,7 +4,7 @@ services:
   postgres:
     image: postgres:latest
     environment:
-      POSTGRES_DB: blog
+      POSTGRES_DB: bookshop
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:

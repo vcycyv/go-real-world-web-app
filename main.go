@@ -8,12 +8,12 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
-	"github.com/vcycyv/blog/handler"
-	"github.com/vcycyv/blog/infrastructure"
-	infra "github.com/vcycyv/blog/infrastructure"
-	"github.com/vcycyv/blog/infrastructure/repository"
-	"github.com/vcycyv/blog/middleware"
-	"github.com/vcycyv/blog/service"
+	"github.com/vcycyv/bookshop/handler"
+	"github.com/vcycyv/bookshop/infrastructure"
+	infra "github.com/vcycyv/bookshop/infrastructure"
+	"github.com/vcycyv/bookshop/infrastructure/repository"
+	"github.com/vcycyv/bookshop/middleware"
+	"github.com/vcycyv/bookshop/service"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/schema"
@@ -74,9 +74,9 @@ func initRouter() *gin.Engine {
 	repository.InitDB(db)
 
 	authService := infrastructure.NewAuthService()
-	postRepo := repository.NewPostRepo(db)
-	postService := service.NewPostService(postRepo)
-	postHandler := handler.NewPostHandler(postService, authService)
+	bookRepo := repository.NewBookRepo(db)
+	bookService := service.NewBookService(bookRepo)
+	bookHandler := handler.NewBookHandler(bookService, authService)
 	authHandler := handler.NewAuthHandler(authService)
 
 	r.POST("/auth", authHandler.GetAuth)
@@ -85,11 +85,11 @@ func initRouter() *gin.Engine {
 
 	api.Use(middleware.NewJWTMiddleware(authService).JWT())
 	{
-		api.GET("/posts/:id", postHandler.Get)
-		api.GET("/posts", postHandler.GetAll)
-		api.POST("/posts", postHandler.Add)
-		api.PUT("/posts/:id", postHandler.Update)
-		api.DELETE("/posts/:id", postHandler.Delete)
+		api.GET("/books/:id", bookHandler.Get)
+		api.GET("/books", bookHandler.GetAll)
+		api.POST("/books", bookHandler.Add)
+		api.PUT("/books/:id", bookHandler.Update)
+		api.DELETE("/books/:id", bookHandler.Delete)
 	}
 	return r
 }

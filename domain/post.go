@@ -1,8 +1,8 @@
 package domain
 
 import (
-	"github.com/vcycyv/blog/entity"
-	rep "github.com/vcycyv/blog/representation"
+	"github.com/vcycyv/bookshop/entity"
+	rep "github.com/vcycyv/bookshop/representation"
 )
 
 type PostRepository interface {

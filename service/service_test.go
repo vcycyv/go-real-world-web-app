@@ -1,20 +1,20 @@
 package service
 
 import (
-	"github.com/vcycyv/blog/domain"
-	"github.com/vcycyv/blog/infrastructure/mock"
-	"github.com/vcycyv/blog/infrastructure/repository"
+	"github.com/vcycyv/bookshop/domain"
+	"github.com/vcycyv/bookshop/infrastructure/mock"
+	"github.com/vcycyv/bookshop/infrastructure/repository"
 	"gorm.io/gorm"
 )
 
 var (
-	db        *gorm.DB
-	postSvc domain.PostInterface
+	db      *gorm.DB
+	bookSvc domain.BookInterface
 )
 
 func init() {
 	db = mock.CreateDB()
 	repository.InitDB(db)
-	postRepo := repository.NewPostRepo(db)
-	postSvc = NewPostService(postRepo)
+	bookRepo := repository.NewBookRepo(db)
+	bookSvc = NewBookService(bookRepo)
 }

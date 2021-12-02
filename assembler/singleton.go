@@ -1,9 +1,9 @@
 package assembler
 
 var (
-	PostAss PostAssembler
+	BookAss BookAssembler
 )
 
 func init() {
-	PostAss = NewPostAssembler()
+	BookAss = NewBookAssembler()
 }

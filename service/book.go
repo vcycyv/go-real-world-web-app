@@ -1,9 +1,9 @@
 package service
 
 import (
-	"github.com/vcycyv/blog/assembler"
-	"github.com/vcycyv/blog/domain"
-	rep "github.com/vcycyv/blog/representation"
+	"github.com/vcycyv/bookshop/assembler"
+	"github.com/vcycyv/bookshop/domain"
+	rep "github.com/vcycyv/bookshop/representation"
 )
 
 type bookService struct {

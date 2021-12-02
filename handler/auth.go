@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/vcycyv/blog/domain"
+	"github.com/vcycyv/bookshop/domain"
 )
 
 type authHandler struct {

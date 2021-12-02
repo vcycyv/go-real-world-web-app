@@ -4,8 +4,8 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/vcycyv/blog/entity"
-	"github.com/vcycyv/blog/representation"
+	"github.com/vcycyv/bookshop/entity"
+	"github.com/vcycyv/bookshop/representation"
 )
 
 func TestBook_Add(t *testing.T) {

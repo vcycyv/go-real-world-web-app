@@ -1,4 +1,4 @@
-module github.com/vcycyv/blog
+module github.com/vcycyv/bookshop
 
 go 1.15
 

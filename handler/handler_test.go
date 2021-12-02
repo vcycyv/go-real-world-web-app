@@ -1,15 +1,15 @@
 package handler
 
 import (
-	"github.com/vcycyv/blog/infrastructure/mock"
-	"github.com/vcycyv/blog/infrastructure/repository"
-	"github.com/vcycyv/blog/service"
+	"github.com/vcycyv/bookshop/infrastructure/mock"
+	"github.com/vcycyv/bookshop/infrastructure/repository"
+	"github.com/vcycyv/bookshop/service"
 	"gorm.io/gorm"
 )
 
 var (
-	db         *gorm.DB
-	postHdlr postHandler
+	db       *gorm.DB
+	bookHdlr bookHandler
 )
 
 func init() {
@@ -17,7 +17,7 @@ func init() {
 
 	db = mock.CreateDB()
 	repository.InitDB(db)
-	postRepo := repository.NewPostRepo(db)
-	postService := service.NewPostService(postRepo)
-	postHdlr = NewPostHandler(postService, authService)
+	bookRepo := repository.NewBookRepo(db)
+	bookService := service.NewBookService(bookRepo)
+	bookHdlr = NewBookHandler(bookService, authService)
 }

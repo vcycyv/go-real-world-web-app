@@ -8,7 +8,7 @@ type app struct {
 }
 
 var AppSetting = &app{
-	AppName:  "blog",
+	AppName:  "bookshop",
 	RunMode:  "debug",
 	HTTPPort: 8000,
 	LogPath:  "/home/chuyang/tmp",
@@ -27,7 +27,7 @@ var DatabaseSetting = &database{
 	DBPassword: "postgres",
 	DBHost:     "127.0.0.1",
 	DBPort:     5432,
-	DBName:     "blog",
+	DBName:     "bookshop",
 }
 
 type ldapSetting struct {

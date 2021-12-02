@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	rep "github.com/vcycyv/blog/representation"
+	rep "github.com/vcycyv/bookshop/representation"
 )
 
 func JSONAppErrorReporter() gin.HandlerFunc {
