@@ -62,7 +62,7 @@ func (m *bookRepo) GetAll() ([]*entity.Book, error) {
 
 func (m *bookRepo) Update(book entity.Book) (*entity.Book, error) {
 	logrus.Debugf("about to update a book %s", book.Name)
-	err := m.db.Save(&book).Error
+	err := m.db.Select("name", "updated_at").Updates(&book).Error
 	logrus.Debugf("book %s updated", book.Name)
 	return &book, err
 }
